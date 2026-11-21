@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Ulang Tahun Spesial!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Foto Full Halaman Latar Belakang -->
+  <div class="full-bg-image"></div>
+
+  <!-- Container Efek Love Melayang -->
+  <div class="hearts-container" id="hearts-container"></div>
+
+  <!-- Audio Musik Latar -->
+  <audio id="bg-music" loop>
+    <source src="audiolaguazka.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Kontrol Musik -->
+  <button id="music-toggle" onclick="toggleMusic()">🎵 Play Musik</button>
+
+  <div class="app-container">
+    
+    <!-- HALAMAN 1: AMPLOP INTERAKTIF -->
+    <section class="page active" id="page-1">
+      <div class="envelope-wrapper" id="envelope" onclick="openEnvelope()">
+        <div class="envelope">
+          <div class="flap">
+            <span class="flap-text">Buka amplop ini sayangg</span>
+          </div>
+          <div class="letter">
+            <p class="letter-text">halloo sayangku yang ganteng, ada sebuah ucapan spesial untuk lelakiku tersayang yang sangat aku cintai sekali❤️✨</p>
+          </div>
+        </div>
+      </div>
+      <p class="hint">Klik amplop di atas untuk membuka surat</p>
+      <button class="nav-btn next-btn hidden" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+    </section>
+
+    <!-- HALAMAN 2: KUE 3 TINGKAT & LILIN INTERAKTIF -->
+    <section class="page" id="page-2">
+      <div class="card aesthetic-card cake-page-card">
+        <h2>🎉 tiup lilin bolu dari princess</h2>
+        
+        <div class="cake-container">
+          <div class="candles">
+            <div class="candle"><div class="flame" id="flame1"></div></div>
+            <div class="candle"><div class="flame" id="flame2"></div></div>
+            <div class="candle"><div class="flame" id="flame3"></div></div>
+          </div>
+          <div class="cake-tier tier-top"></div>
+          <div class="cake-tier tier-middle"></div>
+          <div class="cake-tier tier-bottom"></div>
+        </div>
+
+        <button class="action-btn blow-btn" onclick="blowCandles()">🔥 TIUP LILIN 🎂</button>
+
+        <div class="marquee-container hidden" id="marquee-text">
+          <p class="marquee-content">✨ ciee udah di tiup nih lilinnya, kalo tiup lilinnya berarti harus baikan ya gaboleh cuek teruss sayang yeayyeyayy 🎉🎂✨</p>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA SAYANG➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 3 -->
+    <section class="page" id="page-3">
+      <div class="card aesthetic-card">
+        <h2>✨MINTA MAAF SAYANG 1</h2>
+        <p>sayangg aku minta maaf ya sama kamu banyak hal yang udah bikin kamu ngerasa sakit hati, cape, cemburu dan merasa ga di hargain sama aku, aku janji sayang bakalan berubah aku janji sayang bakalan setia sama kamu gabakalan macem macem sama kamu dibelakang kamu, bakalan bikin kamu bahagia.</p>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 4 -->
+    <section class="page" id="page-4">
+      <div class="card aesthetic-card">
+        <h2>🌸 MINTA MAAF SAYANG 2</h2>
+        <p>maafin nadia ya sayang masih banyak ga nurut sama kamu dalam segi pakaian, untuk masalah kerudung aku tau harus seperti apa tapi tolong ya ngertiin keinginan style kerudung aku, bagaimanapun itu aku tidak akan pernah buka kerudung.</p>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 5 -->
+    <section class="page" id="page-5">
+      <div class="card aesthetic-card">
+        <h2>💫 HARAPAN NADIA KEPADA AZKA</h2>
+        <p>harapan nadia sama azka sangat besar sayang, aku ingin kamu selalu sama aku, jangan selingkuh harus setia, maafin semua kesalahan aku, minta excited sama aku prioritaskan aku, jangan terlalu dekat dan apa apa ketemen kamu, ada aku disini yang menunggu cerita dari kamu, menunggu waktu kamu, kalo bisa tiap hari ketemu aku ingin selalu ada disamping kamu, jaga kesehatan ya ganteng jangan telat makan, jangan ngerokok banyak banyak, jangan main terus, selalu cintai dan sayangin aku ya sayang❤️</p>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA SAYANG ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 6 -->
+    <section class="page" id="page-6">
+      <div class="card aesthetic-card">
+        <h2>🎁 BERSYUKUR </h2>
+        <p>nadia sangat bersyukur sekali dipertemukan dengan kamu, azka adalah lelaki yang baik hatinya, setia, ganteng, sholeh, tidak mabuk mabukan seperti lelaki diluar sana, terus sama nadia ya sayang kita bangun hubungan positif yang seru excited saling menghargai mencintai menyayangi dan selalu ada.</p>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA SAYANG ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 7 -->
+    <section class="page" id="page-7">
+      <div class="card aesthetic-card">
+        <h2>🌟 UNTUK KEDEPANNYA</h2>
+        <p>tetaplah menjadi azka yang baik jangan sampai menjadi nakal gara gara teman, kita perbaiki hubungan kalo ada hal yang bikin sakit hati tolong langsung bilang ya sama aku jangan memendam, tolong terus menjadi pemimpin aku mendidik aku dan menyayangi aku seperti anak kecilmu pilih aku ya dibandingkan dengan teman kamu, aku selalu menunggu kamu yang dulu, aku harap pada hari ini dan seterusnya kamu kembali seperti apa yang aku inginkan seperti sikap kamu yang dulu ke aku tidak pernah marah ngegas ataupun bentak aku, hati aku gabisa dibentak azka trauma ucapan itu melekas di hati aku hehe.</p>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 8: FITUR GOMBALAN & KALKULATOR CINTA CERDAS -->
+    <section class="page" id="page-8">
+      <div class="card aesthetic-card smart-card">
+        <h2>💘gombalan spesial untuk kamu tersayang</h2>
+        
+        <div class="gombal-box" id="gombal-text">
+          Klik tombol di bawah untuk melihat gombalan buat pacar tercinta!
+        </div>
+        <button class="action-btn" onclick="generateGombalan()">🎲 Rilis Gombalan Spesial</button>
+        
+        <div class="love-calculator">
+          <h3>Kalkulator Kecocokan Jodoh 🔮</h3>
+          <div class="input-group">
+            <input type="text" id="name1" placeholder="Nama Pertama...">
+            <input type="text" id="name2" placeholder="Nama Kedua...">
+          </div>
+          <button class="action-btn alt-btn" onclick="calculateLove()">Hitung Tingkat Jodoh ❤️</button>
+          <div id="love-result"></div>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 9: GALERI FOTO BINGKAI LOVE BESAR (8 FOTO) -->
+    <section class="page" id="page-9">
+      <h2 class="gallery-title">📸 Galeri Kenangan Indah Kita Berdua</h2>
+      <div class="photo-grid-large">
+        <div class="love-frame-large"><img src="buana.jpeg" alt="Foto 1"></div>
+        <div class="love-frame-large"><img src="gacoan2.jpeg" alt="Foto 2"></div>
+        <div class="love-frame-large"><img src="gamsus.jpeg" alt="Foto 3"></div>
+        <div class="love-frame-large"><img src="maulid2.jpeg" alt="Foto 4"></div>
+        <div class="love-frame-large"><img src="momen1.jpeg" alt="Foto 5"></div>
+        <div class="love-frame-large"><img src="momen2.jpeg" alt="Foto 6"></div>
+        <div class="love-frame-large"><img src="momentangan.jpeg" alt="Foto 7"></div>
+        <div class="love-frame-large"><img src="putihabu.jpeg" alt="Foto 8"></div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA SAYANG➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 10: 2 VIDEO AESTHETIC -->
+    <section class="page" id="page-10">
+      <div class="card aesthetic-card video-card">
+        <h2>🎬 Video Kenangan Indah Kita Berdua</h2>
+        <div class="dual-video-grid">
+          <div class="video-wrapper-aesthetic">
+            <video controls preload="metadata">
+              <source src="video1.mp4" type="video/mp4">
+              Browser kamu tidak mendukung pemutaran video.
+            </video>
+            <p class="video-caption">Momen Indah Pulang Main 🎥</p>
+          </div>
+          <div class="video-wrapper-aesthetic">
+            <video controls preload="metadata">
+              <source src="video2.mp4" type="video/mp4">
+              Browser kamu tidak mendukung pemutaran video.
+            </video>
+            <p class="video-caption">Momen Indah Nyeblak Berdua 🎬</p>
+          </div>
+        </div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+        <button class="nav-btn next-btn" onclick="nextPage()">BUKA HALAMAN SELANJUTNYA ➔</button>
+      </div>
+    </section>
+
+    <!-- HALAMAN 11: PENUTUP -->
+    <section class="page" id="page-11">
+      <div class="card aesthetic-card closing-card">
+        <h2>💖 terimakacii cayanggkuu 💖</h2>
+        <p class="closing-text">
+          terimakacii banyakk cayang udah baca semuanya love youuu cayangg gantengkuuuu.
+        </p>
+        <div class="closing-heart">💖✨🌸✨💖</div>
+      </div>
+      <div class="nav-group">
+        <button class="nav-btn prev-btn" onclick="prevPage()">⬅ SEBELUMNYA</button>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

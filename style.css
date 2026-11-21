@@ -1,0 +1,560 @@
+:root {
+  --navy: #6b81fd;
+  --blue-soft: #778DA9;
+  --light-blue: #E0E1DD;
+  --cream-gold: #F5E6CA;
+  --brown: #f74db0;
+  --white: #fd2390;
+  --pink-gold: #E0A96D;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: var(--navy);
+}
+
+/* Background Foto Full Halaman (Hanya di lapisan paling belakang) */
+.full-bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--navy);
+  /* Salin "gamsus 3.jpeg" ke folder yang sama dengan index.html & style.css */
+  background-image: url("https://cdnstatic.tencentcs.com/edgeone/pages/assets/1795198368577-UeQj.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.55) blur(2px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ANIMASI HUJAN LOVE MELAYANG */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.falling-heart {
+  position: absolute;
+  top: -10%;
+  color: #ff6b81;
+  font-size: 1.5rem;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+#music-toggle {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--cream-gold), var(--pink-gold));
+  color: var(--brown);
+  border: 2px solid var(--brown);
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgb(71, 140, 231);
+}
+
+.app-container {
+  width: 100%;
+  max-width: 900px;
+  height: 92vh;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.page.active {
+  display: flex;
+}
+
+.aesthetic-card {
+  background: linear-gradient(135deg, rgba(155, 197, 231, 0.85), rgba(163, 206, 241, 0.75), rgba(27, 38, 59, 0.85));
+  backdrop-filter: blur(10px);
+  border: 3px solid rgb(138, 154, 245);
+  border-radius: 25px;
+  padding: 30px;
+  margin: 0 auto;
+  width: 90%;
+  box-shadow: 0 15px 35px rgba(101, 78, 231, 0.973);
+  color: var(--white);
+  text-shadow: 1px 1px 3px rgba(86, 51, 211, 0.973);
+  text-align: center;
+  position: relative;
+  z-index: 4;
+}
+
+.aesthetic-card h2 {
+  color: var(--cream-gold);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.aesthetic-card p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.nav-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 5;
+}
+
+.nav-btn {
+  background: linear-gradient(135deg, var(--blue-soft), var(--navy));
+  color: var(--cream-gold);
+  border: 2px solid var(--cream-gold);
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgb(80, 152, 245);
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: linear-gradient(135deg, var(--cream-gold), var(--brown));
+  color: var(--white);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* AMPLOP WARNA CREAM & NAVY (HALAMAN 1) */
+.envelope-wrapper {
+  cursor: pointer;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.envelope {
+  width: 340px;
+  height: 220px;
+  background-color: var(--navy);
+  position: relative;
+  border-radius: 0 0 15px 15px;
+  border: 2px solid var(--cream-gold);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  box-shadow: 0 12px 25px rgb(86, 144, 231);
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-left: 170px solid transparent;
+  border-right: 170px solid transparent;
+  border-top: 125px solid var(--cream-gold);
+  transform-origin: top;
+  transition: transform 0.6s ease;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+}
+
+.flap-text {
+  position: absolute;
+  top: -110px;
+  width: 180px;
+  text-align: center;
+  color: var(--navy);
+  font-weight: bold;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  transition: opacity 0.3s ease;
+}
+
+/* Isi surat disembunyikan sebelum amplop dibuka */
+.letter {
+  background-color: var(--cream-gold);
+  padding: 20px;
+  border-radius: 10px;
+  width: 88%;
+  height: 82%;
+  margin-bottom: 12px;
+  color: var(--navy);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(54, 136, 243, 0.884);
+  z-index: 2;
+  border: 1px dashed var(--navy);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.45s ease 0.25s, visibility 0.45s ease 0.25s, transform 0.55s ease 0.25s;
+}
+
+.letter-text {
+  font-size: 1.05rem;
+  color: var(--navy);
+  line-height: 1.5;
+  text-shadow: none;
+  font-weight: 600;
+}
+
+.envelope-wrapper.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-wrapper.open .flap-text {
+  opacity: 0;
+}
+
+.envelope-wrapper.open .letter {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-55px);
+}
+
+.hint {
+  color: var(--cream-gold);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* HALAMAN 2: KUE 3 TINGKAT */
+.cake-page-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cake-container {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: 15px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cake-tier {
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+  box-shadow: inset 0 5px 10px rgba(110, 129, 235, 0.986);
+}
+
+.tier-bottom { height: 70px; width: 220px; background-color: var(--brown); }
+.tier-middle { height: 55px; width: 170px; background-color: #4A90E2; }
+.tier-top { height: 45px; width: 120px; background-color: var(--cream-gold); }
+
+.candles {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  top: 15px;
+}
+
+.candle {
+  width: 12px;
+  height: 35px;
+  background: linear-gradient(to bottom, #ff9a9e, #fecfef);
+  border-radius: 3px;
+  position: relative;
+}
+
+.flame {
+  width: 12px;
+  height: 18px;
+  background: orange;
+  border-radius: 50% 50% 20% 20%;
+  position: absolute;
+  top: -18px;
+  box-shadow: 0 0 10px #ff0;
+  animation: flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.flame.off { display: none; }
+
+.action-btn {
+  background: linear-gradient(135deg, var(--brown), var(--pink-gold));
+  color: var(--white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgb(67, 123, 243);
+}
+
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: rgb(101, 98, 236);
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.marquee-content {
+  white-space: nowrap;
+  animation: marquee 10s linear infinite;
+  color: var(--cream-gold);
+  font-weight: bold;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* HALAMAN 8: FITUR GOMBALAN & KALKULATOR */
+.gombal-box {
+  background: rgba(60, 136, 223, 0.904);
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px dashed var(--cream-gold);
+  margin: 15px 0;
+  min-height: 60px;
+  font-weight: bold;
+}
+
+.love-calculator {
+  margin-top: 15px;
+  border-top: 1px solid rgb(47, 6, 231);
+  padding-top: 15px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.input-group input {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  width: 45%;
+  text-align: center;
+  outline: none;
+}
+
+#love-result {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--cream-gold);
+}
+
+/* HALAMAN 9: BINGKAI FOTO BENTUK LOVE DI ATAS BACKGROUND (8 FOTO) */
+.gallery-title {
+  color: var(--cream-gold);
+  text-align: center;
+  text-shadow: 2px 2px 4px rgb(253, 21, 195);
+  position: relative;
+  z-index: 5;
+}
+
+.photo-grid-large {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-height: 68vh;
+  overflow-y: auto;
+  padding: 15px;
+  position: relative;
+  z-index: 5;
+}
+
+.love-frame-large {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  clip-path: path('M 80,24 A 40,40 0 0,0 0,64 C 0,112 80,152 80,152 C 80,152 160,112 160,64 A 40,40 0 0,0 80,24 Z');
+  background: linear-gradient(135deg, var(--cream-gold), var(--pink-gold));
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 6;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 6px 10px rgba(108, 96, 224, 0.966));
+}
+
+.love-frame-large:hover {
+  transform: scale(1.08);
+}
+
+.love-frame-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: path('M 80,24 A 40,40 0 0,0 0,64 C 0,112 80,152 80,152 C 80,152 160,112 160,64 A 40,40 0 0,0 80,24 Z');
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* HALAMAN 10: 2 VIDEO DI ATAS BACKGROUND */
+.video-card {
+  max-height: 75vh;
+  overflow-y: auto;
+}
+
+.dual-video-grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+.video-wrapper-aesthetic {
+  flex: 1 1 260px;
+  max-width: 380px;
+  min-width: 240px;
+  background: rgba(253, 71, 171, 0.92);
+  padding: 10px;
+  border-radius: 15px;
+  border: 2px solid var(--cream-gold);
+  box-shadow: 0 5px 15px rgba(138, 154, 245, 0.87);
+  position: relative;
+  z-index: 6;
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-wrapper-aesthetic video {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  background-color: #ff5dc1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.video-caption {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--cream-gold);
+  font-weight: bold;
+}
+
+/* HALAMAN 11: PENUTUP */
+.closing-card {
+  padding: 40px 30px;
+}
+
+.closing-text {
+  font-size: 1.3rem;
+  margin: 20px 0;
+  line-height: 1.8;
+}
+
+.closing-heart {
+  font-size: 2rem;
+  margin-top: 15px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 768px) {
+  .photo-grid-large {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .love-frame-large {
+    width: 130px;
+    height: 130px;
+    clip-path: path('M 65,19.5 A 32.5,32.5 0 0,0 0,52 C 0,91 65,123.5 65,123.5 C 65,123.5 130,91 130,52 A 32.5,32.5 0 0,0 65,19.5 Z');
+  }
+  .love-frame-large img {
+    clip-path: path('M 65,19.5 A 32.5,32.5 0 0,0 0,52 C 0,91 65,123.5 65,123.5 C 65,123.5 130,91 130,52 A 32.5,32.5 0 0,0 65,19.5 Z');
+  }
+}
